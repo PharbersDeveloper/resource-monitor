@@ -1,0 +1,10 @@
+
+@import "ember-bootstrap/bootstrap";
+@import "bp-components";
+html,
+body,
+body> :global(.ember-view) {
+	background-color: $n010;
+	height: 100%;
+	min-width: 1200px;
+}

@@ -1,0 +1,35 @@
+{{#bp-layout main='between' }}
+    <div local-class="dashboard-wrapper">
+        <h2 class="text-center">cpu monitor</h2>
+        {{bp-row direction='col' rowModel=monitoring conditions=monitoringConditionForCPU}}
+    </div>
+
+    <div local-class="dashboard-wrapper">
+        <h2 class="text-center">memory monitor</h2>
+        {{bp-row direction='col' rowModel=monitoringMemory conditions=monitoringConditionForMemory}}
+    </div>
+
+{{/bp-layout}}
+{{#bp-layout main='between' }}
+    <div local-class="dashboard-wrapper">
+        <h2 class="text-center">network receive monitor</h2>
+        {{bp-row direction='col' rowModel=monitoringReceive conditions=monitoringConditionForReceive}}
+    </div>
+
+    <div local-class="dashboard-wrapper">
+        <h2 class="text-center">network transmit monitor</h2>
+        {{bp-row direction='col' rowModel=monitoringTransmit conditions=monitoringConditionForTransmit}}
+    </div>
+
+{{/bp-layout}}
+{{#bp-layout main='between' }}
+    <div local-class="dashboard-wrapper">
+        <h2 class="text-center">disk monitor</h2>
+        {{bp-row direction='col' rowModel=monitoringDisk conditions=monitoringConditionForDisk}}
+    </div>
+
+    {{#bp-layout main='center' cross='center' local-class="dashboard-wrapper"}}
+        <h2>PHARBERS RESOURCE MONITOR</h2>
+    {{/bp-layout}}
+
+{{/bp-layout}}
