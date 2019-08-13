@@ -1,11 +1,11 @@
 {
   "name": "resource-monitor",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
-  "description": "Small description for resource-monitor goes here",
+  "description": "resource monitor",
   "repository": "",
   "license": "MIT",
-  "author": "",
+  "author": "Frank Wang",
   "directories": {
     "doc": "doc",
     "test": "tests"

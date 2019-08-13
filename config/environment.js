@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'resource-monitor',
     podModulePrefix: 'resource-monitor/src',
@@ -25,11 +25,10 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.Host = "http://123.56.179.133";
+    ENV.Port = 9201;
+    ENV.Version= 'v1.0';
+    ENV.DB = 'DL';
   }
 
   if (environment === 'test') {
@@ -45,6 +44,10 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.Host = "http://123.56.179.133";
+    ENV.Port = 9201;
+    ENV.Version= 'v1.0';
+    ENV.DB = 'DL';
     // here you can enable a production-specific feature
   }
 

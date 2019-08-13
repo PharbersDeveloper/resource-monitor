@@ -1,17 +1,40 @@
 import Controller from '@ember/controller';
 import EmberObject from '@ember/object';
 import {A } from '@ember/array';
+import ENV from "resource-monitor/config/environment";
 
 let queryAddress = EmberObject.create({
-    host: 'http://192.168.100.174',
-    port: 9001,
-    version: 'v1.0',
-    db: 'DL'
+    host: ENV.Host,
+    port: ENV.Port,
+    version: ENV.Version,
+    db: ENV.DB
 }),
 dynamic = EmberObject.create({
     isDynamic: true,
     interval: 1000
-})
+}),
+conditionData = function(size,type) {
+    return {
+        "model": "es",
+        "query": {
+            "search": {
+                "size": size,
+                "sort": ["-time.keyword"],
+            }
+        },
+        "format": [
+            {
+                "class": "pivot",
+                "args": {
+                    "yAxis": "time",
+                    "xAxis": "hostname",
+                    "value": type	// cpu / receive / transmit / disk / memory
+                }
+            }
+        ]
+    }
+};
+
 export default Controller.extend({
     monitoring: EmberObject.create({
         id: 'monitoringContainer',
@@ -94,36 +117,16 @@ export default Controller.extend({
             }]
         }]
     }),
-    monitoringConditionForCPU: [{
+    monitoringConditionForCPU: A([{
         queryAddress,
         dynamic,
-        data: {
-            "model": "es",
-            "query": {
-                "search": {
-                    "from":10,
-                    "size": 70,
-                    "sort": ["-time.keyword"],
-                }
-            },
-            "format": [
-                {
-                    "class": "pivot",
-                    "args": {
-                        "yAxis": "time",
-                        "xAxis": "hostname",
-                        "value": "cpu"	// cpu / receive / transmit / disk / memory
-                    }
-                }
-            ]
-        }
-    }],
+        data: conditionData(1000,'cpu')
+    }]),
     monitoringMemory: EmberObject.create({
         id: 'monitoringContainer1',
         height: 305,
         panels: [{
             id: 'monitoringExampleForMemory',
-            // animation: false,
             xAxis: {
                 show: true,
                 type: 'category',
@@ -157,10 +160,7 @@ export default Controller.extend({
                 },
                 axisLabel: {
                     show: true,
-                    color: '#7A869A',
-                    // formatter: function (value) {
-                    // 	return value * 100 + axisConfig.unit;
-                    // }
+                    color: '#7A869A'
                 },
                 splitLine: {
                     show: true,
@@ -200,35 +200,9 @@ export default Controller.extend({
         }]
     }),
     monitoringConditionForMemory: A([{
-        queryAddress: {
-            host: 'http://192.168.100.174',
-            port: 9001,
-            version: 'v1.0',
-            db: 'DL'
-        },
-        dynamic: {
-            isDynamic: true,
-            interval: 1000
-        },
-        data: {
-            "model": "es",
-            "query": {
-                "search": {
-                    "size": 70,
-                    "sort": ["-time.keyword"],
-                }
-            },
-            "format": [
-                {
-                    "class": "pivot",
-                    "args": {
-                        "yAxis": "time",
-                        "xAxis": "hostname",
-                        "value": "memory"	// cpu / receive / transmit / disk / memory
-                    }
-                }
-            ]
-        }
+        queryAddress,
+        dynamic,
+        data: conditionData(1000,'memory')
     }]),
     monitoringReceive: EmberObject.create({
         id: 'monitoringContainer2',
@@ -312,35 +286,9 @@ export default Controller.extend({
         }]
     }),
     monitoringConditionForReceive: A([{
-        queryAddress: {
-            host: 'http://192.168.100.174',
-            port: 9001,
-            version: 'v1.0',
-            db: 'DL'
-        },
-        dynamic: {
-            isDynamic: true,
-            interval: 1000
-        },
-        data: {
-            "model": "es",
-            "query": {
-                "search": {
-                    "size": 70,
-                    "sort": ["-time.keyword"],
-                }
-            },
-            "format": [
-                {
-                    "class": "pivot",
-                    "args": {
-                        "yAxis": "time",
-                        "xAxis": "hostname",
-                        "value": "receive"	// cpu / receive / transmit / disk / memory
-                    }
-                }
-            ]
-        }
+        queryAddress,
+        dynamic,
+        data: conditionData(1000,'receive')
     }]),
     monitoringTransmit: EmberObject.create({
         id: 'monitoringContainer3',
@@ -424,35 +372,9 @@ export default Controller.extend({
         }]
     }),
     monitoringConditionForTransmit: A([{
-        queryAddress: {
-            host: 'http://192.168.100.174',
-            port: 9001,
-            version: 'v1.0',
-            db: 'DL'
-        },
-        dynamic: {
-            isDynamic: true,
-            interval: 1000
-        },
-        data: {
-            "model": "es",
-            "query": {
-                "search": {
-                    "size": 70,
-                    "sort": ["-time.keyword"],
-                }
-            },
-            "format": [
-                {
-                    "class": "pivot",
-                    "args": {
-                        "yAxis": "time",
-                        "xAxis": "hostname",
-                        "value": "transmit"	// cpu / receive / transmit / disk / memory
-                    }
-                }
-            ]
-        }
+        queryAddress,
+        dynamic,
+        data: conditionData(1000,'transmit')
     }]),
     monitoringDisk: EmberObject.create({
         id: 'monitoringContainer4',
@@ -536,34 +458,8 @@ export default Controller.extend({
         }]
     }),
     monitoringConditionForDisk: A([{
-        queryAddress: {
-            host: 'http://192.168.100.174',
-            port: 9001,
-            version: 'v1.0',
-            db: 'DL'
-        },
-        dynamic: {
-            isDynamic: true,
-            interval: 1000
-        },
-        data: {
-            "model": "es",
-            "query": {
-                "search": {
-                    "size": 70,
-                    "sort": ["-time.keyword"],
-                }
-            },
-            "format": [
-                {
-                    "class": "pivot",
-                    "args": {
-                        "yAxis": "time",
-                        "xAxis": "hostname",
-                        "value": "disk"	// cpu / receive / transmit / disk / memory
-                    }
-                }
-            ]
-        }
+        queryAddress,
+        dynamic,
+        data: conditionData(1000,'disk')
     }]),
 });
