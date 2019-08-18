@@ -20,7 +20,7 @@ conditionData = function(size,type) {
         "query": {
             "search": {
                 "size": size,
-                "sort": ["%2Btime.keyword"],
+                "sort": ["-time.keyword"],
             }
         },
         "format": [

@@ -28,9 +28,45 @@
         {{bp-row direction='col' rowModel=monitoringDisk conditions=monitoringConditionForDisk}}
     </div>
 
-    {{#bp-layout direction="col" main='center' cross='center' local-class="dashboard-wrapper"}}
-        <h2> <img src="/favicon.jpg" alt=""> PHARBERS RESOURCE MONITOR</h2>
-        <p local-class='note'>机器名称具体指向请垂询齐总</p>
+    {{#bp-layout  main='center' cross='center' local-class="dashboard-wrapper" classNames='px-4'}}
+        
+             {{#bp-layout direction='col' tagName='h2' main='center' cross='center'}}
+            <img src="/favicon.jpg" width="134" height="134" alt="">PHARBERS
+        {{/bp-layout}}
+        {{!-- <p local-class='note'>机器名称具体指向请垂询齐总</p> --}}
+        <table class="table table-hover mb-0">
+            <thead>
+                <th>新主机名</th>
+                <th>外网ip</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>SpiderMan</td>
+                    <td>59.110.31.106</td>
+                </tr>
+                <tr>
+                    <td>Thor</td>
+                    <td>59.110.31.50</td>
+                </tr>
+                <tr>
+                    <td>Captain</td>
+                    <td>123.56.179.133</td>
+                </tr>
+                <tr>
+                    <td>IronMan</td>
+                    <td>59.110.31.215</td>
+                </tr>
+                <tr>
+                    <td>Windows-SporFire</td>
+                    <td>101.200.158.207</td>
+                </tr>
+            </tbody>
+        </table>
+        {{!-- {{#bp-layout direction='col'}}
+            {{#bp-layout}}
+
+            {{/bp-layout}}
+        {{/bp-layout}} --}}
     {{/bp-layout}}
 
 {{/bp-layout}}
