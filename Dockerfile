@@ -17,7 +17,7 @@ RUN npm update && \
 
 WORKDIR /app
 
-LABEL resourcemonitor.version=0.0.1
+LABEL resourcemonitor.version=0.0.2
 
 RUN git clone https://github.com/PharbersDeveloper/resource-monitor.git && \
 	git clone https://github.com/PharbersDeveloper/BP-Components.git

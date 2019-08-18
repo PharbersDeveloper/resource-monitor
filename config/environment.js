@@ -25,7 +25,8 @@ module.exports = function (environment) {
   };
 
   if (environment === 'development') {
-    ENV.Host = "http://123.56.179.133";
+    ENV.Host = "http://59.110.31.50";
+    // ENV.Host = "http://192.168.100.157";
     ENV.Port = 9201;
     ENV.Version= 'v1.0';
     ENV.DB = 'DL';
@@ -44,7 +45,7 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
-    ENV.Host = "http://123.56.179.133";
+    ENV.Host = "http://59.110.31.50";
     ENV.Port = 9201;
     ENV.Version= 'v1.0';
     ENV.DB = 'DL';
