@@ -1,6 +1,6 @@
 {
   "name": "resource-monitor",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "description": "resource monitor",
   "repository": "",
@@ -48,6 +48,9 @@
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.7.1",
     "sass": "^1.22.9"
+  },
+  "resolutions": {
+    "ember-cli/portfinder": "1.0.21"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
