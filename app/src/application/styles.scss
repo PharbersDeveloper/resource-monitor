@@ -2,6 +2,9 @@
 
 .dashboard-wrapper {
     flex: 1;
+    .logo,table {
+        flex: 1;
+    }
 }
 .note{
     @extend %p-secondary;

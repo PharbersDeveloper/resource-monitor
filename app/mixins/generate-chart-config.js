@@ -10,10 +10,16 @@ export default Mixin.create( {
             panels: A([{
                 id: chartId,
                 // animation: false,
+                grid: {
+                    left: 36,
+                    right: 36,
+                    top: 32,
+                    bottom:24
+                },
                 xAxis: {
                     show: true,
                     type: 'category',
-                    name: 'Time',
+                    name: '',
                     axisTick: {
                         show: true,
                         alignWithLabel: true

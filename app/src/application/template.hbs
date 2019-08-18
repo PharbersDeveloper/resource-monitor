@@ -1,40 +1,41 @@
 {{#bp-layout main='between' }}
     <div local-class="dashboard-wrapper">
-        <h2 class="text-center">cpu monitor</h2>
+        <h2 class="text-center">CPU monitor</h2>
         {{bp-row direction='col' rowModel=monitoring conditions=monitoringConditionForCPU}}
     </div>
 
     <div local-class="dashboard-wrapper">
-        <h2 class="text-center">memory monitor</h2>
+        <h2 class="text-center">Memory monitor</h2>
         {{bp-row direction='col' rowModel=monitoringMemory conditions=monitoringConditionForMemory}}
     </div>
-
 {{/bp-layout}}
 {{#bp-layout main='between' }}
     <div local-class="dashboard-wrapper">
-        <h2 class="text-center">network receive monitor</h2>
+        <h2 class="text-center">Network receive monitor</h2>
         {{bp-row direction='col' rowModel=monitoringReceive conditions=monitoringConditionForReceive}}
     </div>
 
     <div local-class="dashboard-wrapper">
-        <h2 class="text-center">network transmit monitor</h2>
+        <h2 class="text-center">Network transmit monitor</h2>
         {{bp-row direction='col' rowModel=monitoringTransmit conditions=monitoringConditionForTransmit}}
     </div>
 
 {{/bp-layout}}
 {{#bp-layout main='between' }}
     <div local-class="dashboard-wrapper">
-        <h2 class="text-center">disk monitor</h2>
+        <h2 class="text-center">Disk monitor</h2>
         {{bp-row direction='col' rowModel=monitoringDisk conditions=monitoringConditionForDisk}}
     </div>
 
     {{#bp-layout  main='center' cross='center' local-class="dashboard-wrapper" classNames='px-4'}}
         
-             {{#bp-layout direction='col' tagName='h2' main='center' cross='center'}}
-            <img src="/favicon.jpg" width="134" height="134" alt="">PHARBERS
+        {{#bp-layout direction='col' tagName='h2' main='center' cross='center' local-class='logo'}}
+            <img src="/favicon.jpg" width="134" height="134" alt="">
+            <p>PHARBERS</p>
+            <p>RESOURCE-MONITOR</p>
         {{/bp-layout}}
         {{!-- <p local-class='note'>机器名称具体指向请垂询齐总</p> --}}
-        <table class="table table-hover mb-0">
+        <table class="table table-hover ml-5 mb-0">
             <thead>
                 <th>新主机名</th>
                 <th>外网ip</th>
