@@ -34,6 +34,7 @@ RUN rm -rf node_modules && \
 	rm package-lock.json && \
 	npm cache clear --force && \
 	npm install && \
+	npm install portfinder --before 2019-08-16 && \
 	npm link bp-components
 
 RUN ember b --environment production
