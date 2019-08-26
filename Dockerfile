@@ -17,7 +17,7 @@ RUN npm update && \
 
 WORKDIR /app
 
-LABEL resourcemonitor.version=0.0.5
+LABEL resourcemonitor.version=0.0.6
 
 RUN git clone https://github.com/PharbersDeveloper/resource-monitor.git && \
 	git clone https://github.com/PharbersDeveloper/BP-Components.git
@@ -34,7 +34,6 @@ RUN rm -rf node_modules && \
 	rm package-lock.json && \
 	npm cache clear --force && \
 	npm install && \
-	npm install portfinder --before 2019-08-16 && \
 	npm link bp-components
 
 RUN ember b --environment production
